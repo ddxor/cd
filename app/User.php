@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Convenience method in the form of an accessor that will provide the month and year of user creation as a string.
+     *
+     * @return string
+     */
+    public function getCreatedAtMonthYearAttribute() : string
+    {
+        return Carbon::parse($this->created_at)->format('M Y');
+    }
 }

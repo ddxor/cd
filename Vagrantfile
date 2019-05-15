@@ -15,11 +15,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |vb|
     vb.customize [
       'modifyvm', :id,
-      '--memory', '512',
+      '--memory', '1024',
       '--cpus', '2'
     ]
   end
 
-  config.vm.provision "shell", path: "vagrant/privileged.sh"
-  config.vm.provision "shell", path: "vagrant/non-privileged.sh", privileged: false
+  config.vm.provision "shell", path: "vagrant/provision-privileged.sh"
+  config.vm.provision "shell", path: "vagrant/provision-non-privileged.sh", privileged: false
+  config.vm.provision "shell", path: "vagrant/run.sh", run: "always"
 end

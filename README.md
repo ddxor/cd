@@ -6,17 +6,27 @@ A technical test for cyber-duck.co.uk. Written using PHP as the primary language
 
 ## Technology
 
-1) PHP 7.2
+1) PHP 7.2 + Laravel
+1) MySQL
+1) Composer
+1) Vagrant
 
 ## Getting started
 
 To get started with this project:
 
-1) Install PHP >= 7.2.x
-1) Install Composer (getcomposer.org)
+1) Install vagrant & virtualbox (e.g. `brew install vagrant virtualbox`)
+1) From the projects' root, execute `vagrant up`
+1) Visit `http://localhost:8000` in your browser
+
+### Development
+
+1) To access the guest VM - for example to run composer commands - execute `vagrant ssh`
+1) Files are synchronised bi-directionally from the projects' root directory
+
 
 ## To-do
 
 The following is a (non-exhaustive) list of items that would enhance this project:
 
-1) A portable development environment (E.g. vagrant or docker)
+1) Enhance the portable development environment (E.g. containerisation, ansible provisioner rather than shell, etc)

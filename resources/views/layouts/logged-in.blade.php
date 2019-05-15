@@ -171,7 +171,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-right">
-                                    <a href="/auth/logout" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -354,8 +354,8 @@
 <!-- AdminLTE App -->
 <script src="vendor/adminlte/dist/js/adminlte.min.js"></script>
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
 </body>
 </html>

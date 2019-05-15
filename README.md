@@ -24,6 +24,11 @@ To get started with this project:
 1) To access the guest VM - for example to run composer commands - execute `vagrant ssh`
 1) Files are synchronised bi-directionally from the projects' root directory
 
+### Tests
+
+1) Access the guest VM via the `vagrant ssh` command
+1) Move into the `/vagrant` directory (i.e. `cd /vagrant`)
+1) Run the test suite by executing `vendor/bin/phpunit`
 
 ## To-do
 

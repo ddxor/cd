@@ -4,4 +4,5 @@
 cd /vagrant
 composer install
 
-
+# Run DB migrations
+php artisan migrate

@@ -260,12 +260,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                {{ config('app.name', 'Laravel') }} - {{ ucfirst(Route::currentRouteName()) }}
+                {{ config('app.name', 'Laravel') }} - {{ Request::get('pageTitle') }}
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
         </section>
 
         <!-- Main content -->

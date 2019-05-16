@@ -206,9 +206,9 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MENU</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="{{ route('home') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                <li><a href="#"><i class="fa fa-briefcase"></i> <span>Companies</span></a></li>
-                <li><a href="#"><i class="fa fa-pied-piper"></i> <span>Employees</span></a></li>
+                <li class="{{ request()->is('home') ? 'active' : '' }}"><a href="{{ route('home') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                <li class="{{ request()->is('companies*') ? 'active' : '' }}"><a href="{{ route('companies.index') }}"><i class="fa fa-briefcase"></i> <span>Companies</span></a></li>
+                <li class="{{ request()->is('employees*') ? 'active' : '' }}"><a href="#"><i class="fa fa-pied-piper"></i> <span>Employees</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -217,13 +217,6 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                {{ config('app.name', 'Laravel') }} - {{ Request::get('pageTitle') }}
-            </h1>
-        </section>
-
         <!-- Main content -->
         <section class="content container-fluid">
 

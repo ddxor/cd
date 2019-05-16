@@ -18,4 +18,14 @@ class Company extends Model
     {
         return $this->hasMany(Employee::class);
     }
+
+    /**
+     * Get the public facing URL of the asset; in this case a logo.
+     *
+     * @return string
+     */
+    public function getLogoURLAttribute() : string
+    {
+        return url(env('PUBLIC_UPLOAD_DIR_EXTERNAL_PATH') . $this->logo_path);
+    }
 }

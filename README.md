@@ -35,5 +35,6 @@ To get started with this project:
 The following is a (non-exhaustive) list of items that would enhance this project:
 
 1) Enhance the portable development environment (E.g. containerisation, ansible provisioner rather than shell, etc)
-1) Enhance LoginRequiredForDashboardTest
 1) Enhance EmployeesTableTest to test companies cascade delete
+1) Extend and enhance the LoginRequiredForDashboardTest feature test to check all private areas
+1) Add flash messages for CRUD actions (E.g. 'Successfully deleted X record', etc)

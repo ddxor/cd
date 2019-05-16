@@ -35,4 +35,5 @@ To get started with this project:
 The following is a (non-exhaustive) list of items that would enhance this project:
 
 1) Enhance the portable development environment (E.g. containerisation, ansible provisioner rather than shell, etc)
-1) Enhance registration status feature tests
+1) Enhance LoginRequiredForDashboardTest
+1) Enhance EmployeesTableTest to test companies cascade delete

@@ -26,8 +26,8 @@ class CreateEmployeesTable extends Migration
                 ->on('companies')
                 ->onDelete('cascade');
 
-            $table->string('email');
-            $table->string('phone');
+            $table->string('email')->nullable(true);
+            $table->string('phone')->nullable(true);
         });
     }
 

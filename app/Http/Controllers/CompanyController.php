@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Http\Requests\StoreUpdateCompany;
 
 class CompanyController extends Controller
 {
@@ -35,7 +35,7 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateCompany $request)
     {
         //
     }
@@ -69,11 +69,15 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(StoreUpdateCompany $request, Company $company)
     {
         $company->name = $request->name;
         $company->email = $request->email;
-        $company->logo_path = $request->logo->store('companies', 'public');
+
+        if ($request->logo) {
+            $company->logo_path = $request->logo->store('companies', 'public');
+        }
+
         $company->website_url = $request->website_url;
         $company->save();
 
@@ -90,6 +94,6 @@ class CompanyController extends Controller
     {
         $company->delete();
 
-        return redirect()->route('companies.index');
+        return redirect()->route('companies.index')->with('message', 'Successfully deleted');
     }
 }

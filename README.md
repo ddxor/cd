@@ -37,5 +37,4 @@ The following is a (non-exhaustive) list of items that would enhance this projec
 1) Enhance the portable development environment (E.g. containerisation, ansible provisioner rather than shell, etc)
 1) Enhance EmployeesTableTest to test companies cascade delete
 1) Extend and enhance the LoginRequiredForDashboardTest feature test to check all private areas
-1) Add flash messages for CRUD actions (E.g. 'Successfully deleted X record', etc)
-1) Enhance frontend input validation
+1) Write unit and feature tests to test input validation (I.e. StoreUpdateCompany)

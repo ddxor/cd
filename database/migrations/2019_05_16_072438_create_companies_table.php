@@ -16,10 +16,10 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name')->nullable(false);
-            $table->string('email');
-            $table->string('logo_path');
-            $table->string('website_url');
+            $table->string('name');
+            $table->string('email')->nullable(true);
+            $table->string('logo_path')->nullable(true);
+            $table->string('website_url')->nullable(true);
         });
     }
 

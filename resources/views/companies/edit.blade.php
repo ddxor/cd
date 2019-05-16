@@ -21,7 +21,7 @@
                                 <label for="logo">Logo</label>
                                 <a href="{{ $company->logo_url }}" target="_blank">(view)</a>
                                 <br />
-                                Upload new logo:
+                                Upload new logo: (min 100x100px)
                                 <input type="file" class="form-control" name="logo" />
                             </div>
                             <div class="form-group">

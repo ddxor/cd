@@ -202,35 +202,13 @@
                 </div>
             </div>
 
-            <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-                </div>
-            </form>
-            <!-- /.search form -->
-
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">HEADER</li>
+                <li class="header">MENU</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-                        <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
-                    </ul>
-                </li>
+                <li class="active"><a href="{{ route('home') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                <li><a href="#"><i class="fa fa-briefcase"></i> <span>Companies</span></a></li>
+                <li><a href="#"><i class="fa fa-pied-piper"></i> <span>Employees</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
@@ -255,16 +233,6 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <!-- To the right -->
-        <div class="pull-right hidden-xs">
-            Anything you want
-        </div>
-        <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

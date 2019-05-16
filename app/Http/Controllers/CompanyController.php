@@ -10,9 +10,9 @@ use App\Http\Requests\StoreUpdateCompany;
 class CompanyController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a list of companies.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index() : View
     {
@@ -20,9 +20,9 @@ class CompanyController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a company.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function create() : View
     {
@@ -30,10 +30,10 @@ class CompanyController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created company in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StoreUpdateCompany $request
+     * @return RedirectResponse
      */
     public function store(StoreUpdateCompany $request) : RedirectResponse
     {
@@ -53,9 +53,9 @@ class CompanyController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified company.
      *
-     * @param  \App\Company  $company
+     * @param Company $company
      * @return void
      * @todo Consider implementing this? - We have so little info the index page is sufficient at present.
      */
@@ -64,10 +64,10 @@ class CompanyController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified company.
      *
-     * @param  \App\Company  $company
-     * @return \Illuminate\View
+     * @param Company $company
+     * @return View
      */
     public function edit(Company $company) : View
     {
@@ -75,11 +75,11 @@ class CompanyController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified company in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Company  $company
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StoreUpdateCompany $request
+     * @param Company $company
+     * @return RedirectResponse
      */
     public function update(StoreUpdateCompany $request, Company $company) : RedirectResponse
     {
@@ -97,10 +97,11 @@ class CompanyController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified company from storage.
      *
-     * @param  \App\Company  $company
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Company $company
+     * @return RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Company $company) : RedirectResponse
     {

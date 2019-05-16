@@ -23,7 +23,13 @@
                                     <td>{{ $company->id }}</td>
                                     <td>{{ $company->name }}</td>
                                     <td>{{ $company->email }}</td>
-                                    <td><img src="{{ $company->logo_url }}" alt="{{ $company->name }} logo" height="40" /></td>
+                                    <td>
+                                        @if ($company->logo_url)
+                                            <img src="{{ $company->logo_url }}" alt="{{ $company->name }} logo" height="40" />
+                                        @else
+                                            Pending logo
+                                        @endif
+                                    </td>
                                     <td><a href="{{ $company->website_url }}" target="_blank">Open website (new window)</a></td>
                                     <td><a class="btn btn-small btn-success" href="{{ route('companies.edit', [$company->id ]) }}">Edit</a></td>
                                     <td>

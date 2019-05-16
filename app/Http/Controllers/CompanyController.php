@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use App\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function index()
+    public function index() : View
     {
         return view('companies.index')->with('companies', Company::all());
     }
@@ -59,7 +59,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('companies.edit')->with('company', $company);
     }
 
     /**
@@ -71,7 +71,13 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $company->name = $request->name;
+        $company->email = $request->email;
+        $company->logo_path = $request->logo->store('companies', 'public');
+        $company->website_url = $request->website_url;
+        $company->save();
+
+        return redirect()->route('companies.index')->with('message', 'Successfully updated');
     }
 
     /**

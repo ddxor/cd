@@ -12,3 +12,6 @@ php artisan db:seed
 
 # Publish adminlte assets
 php artisan vendor:publish --provider="JeroenNoten\LaravelAdminLte\ServiceProvider" --tag=assets
+
+# Symlink storage directory
+php artisan storage:link

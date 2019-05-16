@@ -22,7 +22,7 @@ class CompaniesTableSeeder extends Seeder
                 'updated_at' => now(),
                 'name' => $faker->name,
                 'email' => $faker->email,
-                'logo_path' => 'placeholder-logo.jpg',
+                'logo_path' => '',
                 'website_url' => 'http://example.org',
             ];
         }

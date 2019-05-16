@@ -38,3 +38,4 @@ The following is a (non-exhaustive) list of items that would enhance this projec
 1) Enhance EmployeesTableTest to test companies cascade delete
 1) Extend and enhance the LoginRequiredForDashboardTest feature test to check all private areas
 1) Write unit and feature tests to test input validation (I.e. StoreUpdateCompany)
+1) Modularise/de-couple edit & create views - better code re-use

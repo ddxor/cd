@@ -22,42 +22,54 @@ class CompanyController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
-    public function create()
+    public function create() : View
     {
-        //
+        return view('companies.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StoreUpdateCompany $request)
+    public function store(StoreUpdateCompany $request) : RedirectResponse
     {
-        //
+        $company = new Company();
+
+        $company->name = $request->name;
+        $company->email = $request->email;
+
+        if ($request->logo) {
+            $company->logo_path = $request->logo->store('companies', 'public');
+        }
+
+        $company->website_url = $request->website_url;
+        $company->save();
+
+        return redirect()->route('companies.index')->with('message', 'Successfully created');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Company  $company
-     * @return \Illuminate\Http\Response
+     * @return void
+     * @todo Consider implementing this? - We have so little info the index page is sufficient at present.
      */
-    public function show(Company $company)
+    public function show(Company $company) : void
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Company  $company
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View
      */
-    public function edit(Company $company)
+    public function edit(Company $company) : View
     {
         return view('companies.edit')->with('company', $company);
     }
@@ -67,9 +79,9 @@ class CompanyController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Company  $company
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(StoreUpdateCompany $request, Company $company)
+    public function update(StoreUpdateCompany $request, Company $company) : RedirectResponse
     {
         $company->name = $request->name;
         $company->email = $request->email;

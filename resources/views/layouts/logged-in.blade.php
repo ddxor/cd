@@ -219,11 +219,6 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                {{ config('app.name', 'Laravel') }} - {{ Request::get('pageTitle') }}
-            </h1>
-        </section>
-        <section class="content-header">
             @if (Session::has('message'))
                 <div class="alert alert-info">{{ Session::get('message') }}</div>
             @endif

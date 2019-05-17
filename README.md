@@ -10,6 +10,7 @@ A technical test for cyber-duck.co.uk. Written using PHP as the primary language
 1) MySQL
 1) Composer
 1) Vagrant
+1) AdminLTE (Bootstrap, jQuery, etc)
 
 ## Getting started
 
@@ -30,7 +31,7 @@ To get started with this project:
 1) Move into the `/vagrant` directory (i.e. `cd /vagrant`)
 1) Run the test suite by executing `vendor/bin/phpunit`
 
-## To-do
+## Enhancements
 
 The following is a (non-exhaustive) list of items that would enhance this project:
 
@@ -43,4 +44,4 @@ The following is a (non-exhaustive) list of items that would enhance this projec
 1) Add breadcrumb navigation and/or descriptive page titles
 1) Caching in general (E.g. storage results, files, routes, etc)
 1) Frontend tests (E.g. Selenium/Behat)
-1) Enhance frontend assets (E.g. minification, sprites, compression)
+1) Enhance frontend assets (E.g. minification, sprites, compression) and implement a task runner (E.g. grunt)

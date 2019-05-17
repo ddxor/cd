@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Employee;
 use Illuminate\View\View;
 use App\Company;
+use App\Http\Requests\StoreUpdateEmployee;
+use Illuminate\Http\RedirectResponse;
 
 class EmployeeController extends Controller
 {
     /**
      * Display a list of employees, optionally refining by the $company provided.
      *
-     * @paran $company Company
+     * @param $company Company
      * @return View
      */
     public function index(Company $company) : View
@@ -22,93 +24,92 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Show the form for creating a company.
+     * Show the form for creating an employee.
      *
      * @return View
      */
     public function create() : View
     {
-        return view('companies.create');
+        $companies = Company::all()->sortBy('name');
+
+        return view('employees.create')->with('companies', $companies);
     }
 
     /**
-     * Store a newly created company in storage.
+     * Store a newly created employee in storage.
      *
-     * @param StoreUpdateCompany $request
+     * @param StoreUpdateEmployee $request
      * @return RedirectResponse
      */
-    public function store(StoreUpdateCompany $request) : RedirectResponse
+    public function store(StoreUpdateEmployee $request) : RedirectResponse
     {
-        $company = new Company();
+        $employee = new Employee();
+        $employee->first_name = $request->first_name;
+        $employee->last_name = $request->last_name;
+        $employee->company_id = $request->company_id;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->save();
 
-        $company->name = $request->name;
-        $company->email = $request->email;
-
-        if ($request->logo) {
-            $company->logo_path = $request->logo->store('companies', 'public');
-        }
-
-        $company->website_url = $request->website_url;
-        $company->save();
-
-        return redirect()->route('companies.index')->with('message', 'Successfully created');
+        return redirect()->route('employees.index')->with('message', 'Successfully created');
     }
 
     /**
-     * Display the specified company.
+     * Display the specified employee.
      *
-     * @param Company $company
+     * @param Employee $employee
      * @return void
      * @todo Consider implementing this? - We have so little info the index page is sufficient at present.
      */
-    public function show(Company $company) : void
+    public function show(Employee $employee) : void
     {
     }
 
     /**
-     * Show the form for editing the specified company.
+     * Show the form for editing the specified employee.
      *
-     * @param Company $company
+     * @param Employee $employee
      * @return View
      */
-    public function edit(Company $company) : View
+    public function edit(Employee $employee) : View
     {
-        return view('companies.edit')->with('company', $company);
+        $companies = Company::all()->sortBy('name');
+
+        return view('employees.edit')
+            ->with('companies', $companies)
+            ->with('employee', $employee);
     }
 
     /**
-     * Update the specified company in storage.
+     * Update the specified employee in storage.
      *
-     * @param StoreUpdateCompany $request
-     * @param Company $company
+     * @param StoreUpdateEmployee $request
+     * @param Employee $request
      * @return RedirectResponse
      */
-    public function update(StoreUpdateCompany $request, Company $company) : RedirectResponse
+    public function update(StoreUpdateEmployee $request, Employee $employee) : RedirectResponse
     {
-        $company->name = $request->name;
-        $company->email = $request->email;
+        $employee->first_name = $request->first_name;
+        $employee->last_name = $request->last_name;
+        $employee->company_id = $request->company_id;
+        $employee->phone = $request->phone;
+        $employee->email = $request->email;
+        $employee->save();
 
-        if ($request->logo) {
-            $company->logo_path = $request->logo->store('companies', 'public');
-        }
-
-        $company->website_url = $request->website_url;
-        $company->save();
-
-        return redirect()->route('companies.index')->with('message', 'Successfully updated');
+        return redirect()->route('employees.index')->with('message', 'Successfully updated');
     }
 
     /**
-     * Remove the specified company from storage.
+     * Remove the specified employee from storage.
      *
-     * @param Company $company
+     * @param Employee $employee
      * @return RedirectResponse
      * @throws \Exception
      */
-    public function destroy(Company $company) : RedirectResponse
+    public function destroy(Employee $employee) : RedirectResponse
     {
-        $company->delete();
+        $employee->delete();
 
-        return redirect()->route('companies.index')->with('message', 'Successfully deleted');
+        return redirect()->route('employees.index')->with('message', 'Successfully deleted');
     }
 }

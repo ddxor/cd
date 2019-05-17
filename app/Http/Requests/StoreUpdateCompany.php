@@ -11,10 +11,10 @@ class StoreUpdateCompany extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules() : array
     {
         return [
-            'name' => 'required|min:1|max:255',
+            'name' => 'required|string|min:1|max:255',
             'email' => 'nullable|email',
             'logo' => 'image|mimes:jpeg,png,jpg|max:2048|dimensions:min_width=100,min_height=100',
             'website_url' => 'nullable|url',

@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <a class="btn btn-info btn-success pull-right" href="{{ route('companies.create') }}"><i class="fa fa-plus"></i>&nbsp;&nbsp;Create new</a>
+                    <a class="btn btn-info btn-success pull-right" href="{{ route('employees.create') }}"><i class="fa fa-plus"></i>&nbsp;&nbsp;Create new</a>
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>

@@ -40,3 +40,7 @@ The following is a (non-exhaustive) list of items that would enhance this projec
 1) Write unit and feature tests to test input validation (I.e. StoreUpdateCompany)
 1) Modularise/de-couple edit & create views - better code re-use
 1) Add feature tests for Company & Employee CRUD
+1) Add breadcrumb navigation and/or descriptive page titles
+1) Caching in general (E.g. storage results, files, routes, etc)
+1) Frontend tests (E.g. Selenium/Behat)
+1) Enhance frontend assets (E.g. minification, sprites, compression)

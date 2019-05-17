@@ -16,7 +16,9 @@ class CompanyController extends Controller
      */
     public function index() : View
     {
-        return view('companies.index')->with('companies', Company::all());
+        $companies = Company::simplePaginate(env('DEFAULT_PAGINATE_COUNT'));
+
+        return view('companies.index')->with('companies', $companies);
     }
 
     /**

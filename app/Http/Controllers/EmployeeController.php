@@ -18,7 +18,11 @@ class EmployeeController extends Controller
      */
     public function index(Company $company) : View
     {
-        $employees = $company->id === null ? Employee::all() : $company->employees;
+        if (null !== $company->id) {
+            $employees = Employee::where('company_id', $company->id)->simplePaginate(env('DEFAULT_PAGINATE_COUNT'));
+        } else {
+            $employees = Employee::simplePaginate(env('DEFAULT_PAGINATE_COUNT'));
+        }
 
         return view('employees.index')->with('employees', $employees);
     }

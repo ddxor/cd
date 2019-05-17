@@ -14,8 +14,9 @@
                                 <td>Email</td>
                                 <td>Logo</td>
                                 <td>Website</td>
-                                <td>Edit</td>
-                                <td>Delete</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,6 +33,7 @@
                                         @endif
                                     </td>
                                     <td><a href="{{ $company->website_url }}" target="_blank">Open website (new window)</a></td>
+                                    <td><a class="btn btn-small btn-info" href="{{ route('companies.employees.index', [$company->id])  }}">Employees</a></td>
                                     <td><a class="btn btn-small btn-success" href="{{ route('companies.edit', [$company->id ]) }}">Edit</a></td>
                                     <td>
                                         <form action="{{ route('companies.destroy', [$company->id]) }}" method="POST">

@@ -20,8 +20,8 @@ class CompaniesTableSeeder extends Seeder
             $companies[] = [
                 'created_at' => now(),
                 'updated_at' => now(),
-                'name' => $faker->name,
-                'email' => $faker->email,
+                'name' => $faker->company,
+                'email' => $faker->companyEmail,
                 'logo_path' => null,
                 'website_url' => 'http://example.org',
             ];

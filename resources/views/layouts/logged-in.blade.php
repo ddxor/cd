@@ -208,7 +208,7 @@
                 <!-- Optionally, you can add icons to the links -->
                 <li class="{{ request()->is('home') ? 'active' : '' }}"><a href="{{ route('home') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                 <li class="{{ request()->is('companies*') ? 'active' : '' }}"><a href="{{ route('companies.index') }}"><i class="fa fa-briefcase"></i> <span>Companies</span></a></li>
-                <li class="{{ request()->is('employees*') ? 'active' : '' }}"><a href=""><i class="fa fa-pied-piper"></i> <span>Employees</span></a></li>
+                <li class="{{ request()->is('employees*') ? 'active' : '' }}"><a href="{{ route('employees.index') }}"><i class="fa fa-pied-piper"></i> <span>Employees</span></a></li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>

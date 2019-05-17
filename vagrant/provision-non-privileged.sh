@@ -15,3 +15,6 @@ php artisan vendor:publish --provider="JeroenNoten\LaravelAdminLte\ServiceProvid
 
 # Symlink storage directory
 php artisan storage:link
+
+# Copy .env
+cp .env.example .env

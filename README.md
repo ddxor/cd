@@ -1,8 +1,8 @@
-# Cyber-duck technical challenge
+# Technical challenge
 
 ## Introduction
 
-A technical test for cyber-duck.co.uk. Written using PHP as the primary language and Laravel as the backend framework of choice.
+Written using PHP as the primary language and Laravel as the backend framework of choice.
 
 ## Technology
 
